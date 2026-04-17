@@ -1,0 +1,80 @@
+/* public/css/custom-filament.css */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+body, .fi-body {
+    background-color: #f8fafc !important; /* Ice Blue Slate */
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+}
+
+/* Fix Color Contrast issue for texts */
+.fi-main {
+    background: #f8fafc !important;
+}
+h1, h2, h3, h4, h5, h6, .fi-header-heading, .fi-card-heading, .text-gray-950, .dark\:text-white {
+    color: #0f172a !important; /* Deep Navy */
+}
+
+/* Clean-Tech Cards */
+.fi-card, .fi-form-card, .fi-ta-content, .fi-wi-stats-overview-stat {
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 1.5rem !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05) !important;
+    transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease !important;
+}
+.fi-card:hover, .fi-ta-content:hover, .fi-wi-stats-overview-stat:hover {
+    transform: scale(1.01) !important;
+    box-shadow: 0 15px 30px -5px rgba(37, 99, 235, 0.08) !important;
+}
+
+/* Sidebar / Nav Style */
+.fi-topbar {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: blur(12px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+.fi-topbar-item-active, li.fi-active, .fi-tabs-item-active {
+    background: #eff6ff !important; /* Tailwind blue-50 */
+    border-radius: 9999px !important;
+    box-shadow: none !important;
+}
+.fi-topbar-item-active *, li.fi-active *, .fi-tabs-item-active * {
+    color: #0f172a !important; /* Deep Navy text for contrast */
+}
+
+/* Table UI */
+.fi-ta-table {
+    background: #ffffff !important;
+}
+.fi-ta-header-cell {
+    background: #ffffff !important;
+}
+.fi-ta-row > td {
+    background: #ffffff !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+    transition: background-color 0.2s ease !important;
+    border-bottom: 1px solid rgba(0,0,0,0.05) !important;
+}
+.fi-ta-row:hover > td {
+    background: rgba(37, 99, 235, 0.05) !important; /* Subtle light-blue hover bg-blue-50/40 */
+}
+
+/* Custom Thin Blue Scrollbar */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f8fafc; }
+::-webkit-scrollbar-thumb { background: #93c5fd; border-radius: 9999px; }
+::-webkit-scrollbar-thumb:hover { background: #60a5fa; }
+
+/* Pill Shapes */
+.fi-btn, button, .fi-badge {
+    border-radius: 9999px !important;
+}
+
+/* Blue Ring Avatars */
+.fi-ta-record-checkbox + td img, td .fi-ta-image img, td img.rounded-full {
+    border-radius: 9999px !important;
+    border: 2px solid #2563eb !important;
+    padding: 2px;
+    background: white;
+}
