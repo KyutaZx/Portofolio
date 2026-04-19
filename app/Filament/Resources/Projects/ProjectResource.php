@@ -38,7 +38,7 @@ class ProjectResource extends Resource
                         ->visibility('public')
                         ->required(),
                         
-                    \Filament\Forms\Components\RichEditor::make('description')
+                    \Filament\Forms\Components\MarkdownEditor::make('description')
                         ->required()
                         ->columnSpanFull(),
                 ])->columns(2),
