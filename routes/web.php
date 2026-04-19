@@ -10,7 +10,7 @@ Route::post('/contact', [ContactController::class, 'store'])->name('contact.stor
 // Route sementara untuk migrasi di Vercel
 Route::get('/migrate-database', function () {
     try {
-        \Illuminate\Support\Facades\Artisan::call('migrate:force');
+        \Illuminate\Support\Facades\Artisan::call('migrate', ['--force' => true]);
         return "Migration success: " . \Illuminate\Support\Facades\Artisan::output();
     } catch (\Exception $e) {
         return "Migration failed: " . $e->getMessage();
