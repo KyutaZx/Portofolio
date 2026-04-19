@@ -1,5 +1,4 @@
 <?php
-die("DEBUG: API INDEX IS RUNNING - Kalo muncul ini berarti Vercel sudah benar panggil file ini.");
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
