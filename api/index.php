@@ -19,15 +19,24 @@ foreach ($folders as $folder) {
     }
 }
 
-// 2. Set environment variables
+// 2. Set environment variables to force-bypass any uploaded caches
 putenv("LARAVEL_STORAGE_PATH=$storagePath");
+putenv("APP_CONFIG_CACHE=$storagePath/bootstrap/cache/config.php");
+putenv("APP_SERVICES_CACHE=$storagePath/bootstrap/cache/services.php");
+putenv("APP_PACKAGES_CACHE=$storagePath/bootstrap/cache/packages.php");
+putenv("APP_ROUTES_CACHE=$storagePath/bootstrap/cache/routes.php");
 putenv("LOG_CHANNEL=stderr");
-putenv("SESSION_DRIVER=cookie"); // Paksa session ke cookie agar tidak menulis file
+putenv("SESSION_DRIVER=cookie");
 
 // 3. Main Execution with Global Error Catching
 try {
     // Register Autoloader
     require __DIR__ . '/../vendor/autoload.php';
+
+    // Diagnosa: Pastikan file provider ada
+    if (!class_exists('Illuminate\View\ViewServiceProvider')) {
+        throw new \Exception("Kritikal: ViewServiceProvider tidak ditemukan di vendor! Coba cek 'composer install' di Vercel Build Logs.");
+    }
 
     // Boostrap Laravel
     /** @var \Illuminate\Foundation\Application $app */
