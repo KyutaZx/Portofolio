@@ -1,0 +1,11 @@
+/vendor
+/storage
+/node_modules
+.env
+.git
+.github
+tests
+phpunit.xml
+package-lock.json
+composer.lock
+README.md
