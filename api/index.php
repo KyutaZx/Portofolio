@@ -1,17 +1,24 @@
 <?php
-echo "<h3>Diagnosa Sistem Vercel:</h3>";
-echo "PHP Version: " . phpversion() . "<br>";
-echo "APP_KEY: " . (getenv('APP_KEY') ? '✅ Terpasang' : '❌ TIDAK TERPASANG') . "<br>";
-echo "PDO Drivers: " . implode(', ', PDO::getAvailableDrivers()) . "<br>";
-echo "Postgres Driver (pgsql): " . (in_array('pgsql', PDO::getAvailableDrivers()) ? '✅ Ada' : '❌ TIDAK ADA') . "<br>";
-echo "Current Time: " . date('Y-m-d H:i:s') . "<br>";
+// Setup folder storage di /tmp (satu-satunya tempat writable di Vercel)
+$storagePath = '/tmp/storage';
+$folders = [
+    $storagePath . '/framework/views',
+    $storagePath . '/framework/cache',
+    $storagePath . '/framework/sessions',
+    $storagePath . '/logs',
+];
 
-// Jika sudah ada pgsql dan APP_KEY, kita coba intip error Laravel
-if (getenv('APP_KEY')) {
-    echo "<hr>Mencoba booting Laravel...<br>";
-    try {
-        require __DIR__ . '/../public/index.php';
-    } catch (\Exception $e) {
-        echo "<b>Laravel Boot Error:</b> " . $e->getMessage();
+foreach ($folders as $folder) {
+    if (!is_dir($folder)) {
+        mkdir($folder, 0755, true);
     }
 }
+
+// Override environment variables untuk mengarahkan storage
+putenv("LARAVEL_STORAGE_PATH=$storagePath");
+putenv("LOG_CHANNEL=stderr");
+putenv("VIEW_COMPILED_PATH=$storagePath/framework/views");
+putenv("DATA_CACHE_PATH=$storagePath/framework/cache");
+
+// Forward ke Laravel
+require __DIR__ . '/../public/index.php';
