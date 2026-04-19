@@ -24,17 +24,28 @@ putenv("LARAVEL_STORAGE_PATH=$storagePath");
 putenv("LOG_CHANNEL=stderr");
 putenv("SESSION_DRIVER=cookie"); // Paksa session ke cookie agar tidak menulis file
 
-// 3. Register Autoloader
-require __DIR__ . '/../vendor/autoload.php';
+// 3. Main Execution with Global Error Catching
+try {
+    // Register Autoloader
+    require __DIR__ . '/../vendor/autoload.php';
 
-// 4. Boostrap Laravel
-/** @var \Illuminate\Foundation\Application $app */
-$app = require_once __DIR__ . '/../bootstrap/app.php';
+    // Boostrap Laravel
+    /** @var \Illuminate\Foundation\Application $app */
+    $app = require_once __DIR__ . '/../bootstrap/app.php';
 
-// 5. Override Storage Path secara explisit
-$app->useStoragePath($storagePath);
+    // Override Storage Path secara explisit
+    $app->useStoragePath($storagePath);
 
-// 6. Handle Request
-$request = \Illuminate\Http\Request::capture();
-$response = $app->handle($request);
-$response->send();
+    // Handle Request
+    $request = \Illuminate\Http\Request::capture();
+    $response = $app->handle($request);
+    $response->send();
+
+} catch (\Throwable $e) {
+    http_response_code(500);
+    echo "<h1>Debug Laravel Error</h1>";
+    echo "<p><b>Message:</b> " . htmlspecialchars($e->getMessage()) . "</p>";
+    echo "<p><b>File:</b> " . $e->getFile() . " (Line: " . $e->getLine() . ")</p>";
+    echo "<h3>Stack Trace:</h3>";
+    echo "<pre>" . htmlspecialchars($e->getTraceAsString()) . "</pre>";
+}
