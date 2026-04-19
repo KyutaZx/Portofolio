@@ -12,7 +12,11 @@
             "dest": "/public/build/$1"
         },
         {
-            "src": "/(css|js|images)/(.*)",
+            "src": "/filament/(.*)",
+            "dest": "/public/index.php"
+        },
+        {
+            "src": "/(css|js|images|vendor)/(.*)",
             "dest": "/public/$1/$2"
         },
         {
