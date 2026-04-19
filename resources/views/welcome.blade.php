@@ -1140,7 +1140,7 @@
                 {{-- Brand --}}
                 <div>
                     <a href="#" class="font-heading font-extrabold text-4xl text-white tracking-tighter uppercase block mb-4">
-                        {{ mb_substr($identity->name ?? 'M', 0, 1) }}<span class="text-royal">.</span>
+                        {{ mb_substr($identity?->name ?? 'M', 0, 1) }}<span class="text-royal">.</span>
                     </a>
                     <p class="text-white/30 text-sm leading-relaxed max-w-xs">
                         {{ $identity->title ?? 'Backend Engineer' }} crafting clean, scalable systems with Laravel & PHP.
@@ -1203,7 +1203,7 @@
             {{-- BOTTOM BAR --}}
             <div class="border-t border-white/[0.06] pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                 <p class="text-white/20 text-xs font-medium tracking-widest">
-                    &copy; {{ date('Y') }} <span class="text-white/40">{{ $identity->name ?? 'Portfolio' }}</span>. Built with Laravel &amp; ❤️
+                    &copy; {{ date('Y') }} <span class="text-white/40">{{ $identity?->name ?? 'Portfolio' }}</span>. Built with Laravel &amp; ❤️
                 </p>
                 <p class="text-white/10 text-xs font-mono tracking-widest italic hidden md:block">"Clean code always looks like it was written by someone who cares."</p>
                 <button onclick="window.scrollTo({top:0,behavior:'smooth'})"
