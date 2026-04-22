@@ -3,7 +3,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $identity?->name ?? 'Portfolio' }} | Backend Engineer</title>
+    <title>{{ $identity?->name ?? 'Portfolio' }} • Backend Engineer</title>
+    <link rel="icon" type="image/svg+xml" href="{{ asset('favicon.svg') }}">
     <meta name="description" content="{{ Str::limit(strip_tags($identity?->bio ?? ''), 160) }}">
 
     <!-- Typography -->

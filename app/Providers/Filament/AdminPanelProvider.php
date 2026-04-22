@@ -36,6 +36,7 @@ class AdminPanelProvider extends PanelProvider
             ->maxContentWidth('full')
             ->darkMode(false) // Disable dark mode to prevent contrast issues
             ->brandName(fn () => \App\Models\Identity::first()->name ?? 'M. NUR.')
+            ->favicon(asset('favicon.svg'))
             ->renderHook(
                 \Filament\View\PanelsRenderHook::HEAD_END,
                 fn (): string => '<link rel="stylesheet" href="/css/custom-filament.css">'
