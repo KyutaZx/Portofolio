@@ -40,6 +40,7 @@ class IdentityResource extends Resource
                     \Filament\Forms\Components\FileUpload::make('avatar')
                         ->label('Foto Profil')
                         ->image()
+                        ->disk('s3')
                         ->directory('identities')
                         ->columnSpanFull()
                         ->required(),
@@ -75,6 +76,7 @@ class IdentityResource extends Resource
             ->columns([
                 \Filament\Tables\Columns\ImageColumn::make('avatar')
                     ->label('Foto')
+                    ->disk('s3')
                     ->circular(),
 
                 \Filament\Tables\Columns\TextColumn::make('name')
