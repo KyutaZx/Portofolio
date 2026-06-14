@@ -21,10 +21,5 @@ class AppServiceProvider extends ServiceProvider
     {
         if (config('app.env') === 'production' || env('VERCEL_URL')) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
-            
-            if ($vercelUrl = env('VERCEL_URL')) {
-                \Illuminate\Support\Facades\URL::forceRootUrl("https://$vercelUrl");
-            }
         }
-    }
 }

@@ -396,7 +396,7 @@
                                 {{-- Photo --}}
                                 <div class="mx-4 rounded-xl overflow-hidden relative" style="height: 220px; border: 2px solid rgba(37,99,235,0.3);">
                                     @if(isset($identity->avatar) && $identity->avatar)
-                                        <img src="{{ asset('storage/' . $identity->avatar) }}" alt="{{ $identity->name }}" class="w-full h-full object-cover object-top">
+                                        <img src="{{ Storage::url($identity->avatar) }}" alt="{{ $identity->name }}" class="w-full h-full object-cover object-top">
                                     @else
                                         <div class="w-full h-full bg-gradient-to-br from-navy to-slate-800 flex items-center justify-center">
                                             <span class="font-heading font-extrabold text-white/20 text-7xl uppercase">{{ mb_substr($identity->name ?? 'P', 0, 1) }}</span>

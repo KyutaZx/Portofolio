@@ -40,7 +40,6 @@ class IdentityResource extends Resource
                     \Filament\Forms\Components\FileUpload::make('avatar')
                         ->label('Foto Profil')
                         ->image()
-                        ->disk('public')
                         ->directory('identities')
                         ->columnSpanFull()
                         ->required(),

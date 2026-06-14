@@ -33,7 +33,6 @@ class ProjectResource extends Resource
                         
                     \Filament\Forms\Components\FileUpload::make('thumbnail')
                         ->image()
-                        ->disk('public')
                         ->directory('projects') 
                         ->visibility('public')
                         ->required(),
@@ -56,7 +55,6 @@ class ProjectResource extends Resource
         return $table
             ->columns([
                 \Filament\Tables\Columns\ImageColumn::make('thumbnail')
-                    ->disk('public')
                     ->circular(),
                     
                 \Filament\Tables\Columns\TextColumn::make('title')

@@ -9,7 +9,7 @@ $folders = [
     $storagePath . '/bootstrap/cache',
     $storagePath . '/logs',
     $storagePath . '/app/private',
-    $storagePath . '/app/livewire-tmp',
+    $storagePath . '/app/private/livewire-tmp',
 ];
 
 foreach ($folders as $folder) {
