@@ -863,7 +863,7 @@
 
                                 <div class="relative aspect-video">
                                     @if(isset($project->thumbnail) && $project->thumbnail)
-                                        <img src="{{ asset('storage/' . $project->thumbnail) }}" alt="{{ $project->title }}"
+                                        <img src="{{ Storage::url($project->thumbnail) }}" alt="{{ $project->title }}"
                                              class="w-full h-full object-cover transition-transform duration-700 group-hover/proj:scale-105">
                                     @else
                                         <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0f172a] to-[#1e293b]">
