@@ -16,7 +16,7 @@
             "dest": "/public/index.php"
         },
         {
-            "src": "/(css|js|images|vendor)/(.*)",
+            "src": "/(css|js|images|fonts|vendor)/(.*)",
             "dest": "/public/$1/$2"
         },
         {
