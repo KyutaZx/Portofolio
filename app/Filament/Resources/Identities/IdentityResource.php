@@ -33,7 +33,7 @@ class IdentityResource extends Resource
                         ->maxLength(255),
 
                     \Filament\Forms\Components\TextInput::make('title')
-                        ->label('Jabatan / Profesi')
+                        ->label('Posisi / Profesi')
                         ->required() 
                         ->maxLength(255),
 
