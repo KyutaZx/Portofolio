@@ -8,6 +8,8 @@ $folders = [
     $storagePath . '/framework/sessions',
     $storagePath . '/bootstrap/cache',
     $storagePath . '/logs',
+    $storagePath . '/app/private',
+    $storagePath . '/app/livewire-tmp',
 ];
 
 foreach ($folders as $folder) {
@@ -23,7 +25,6 @@ putenv("APP_SERVICES_CACHE=$storagePath/bootstrap/cache/services.php");
 putenv("APP_PACKAGES_CACHE=$storagePath/bootstrap/cache/packages.php");
 putenv("APP_ROUTES_CACHE=$storagePath/bootstrap/cache/routes.php");
 putenv("LOG_CHANNEL=stderr");
-putenv("SESSION_DRIVER=cookie");
 
 // 3. Main Execution
 try {
