@@ -22,4 +22,5 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.env') === 'production' || env('VERCEL_URL')) {
             \Illuminate\Support\Facades\URL::forceScheme('https');
         }
+    }
 }

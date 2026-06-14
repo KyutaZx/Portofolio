@@ -46,5 +46,5 @@ try {
 } catch (\Throwable $e) {
     error_log($e->getMessage());
     http_response_code(500);
-    echo "Internal Server Error";
+    echo "<h1>Internal Server Error</h1><pre>" . $e->getMessage() . "\n" . $e->getFile() . " on line " . $e->getLine() . "</pre>";
 }
