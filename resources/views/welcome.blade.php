@@ -463,8 +463,8 @@
                 {{-- Bio Statement --}}
                 <div class="lg:col-span-3 reveal" :class="shown && 'active'" style="transition-delay: 100ms;">
                     <div class="font-heading text-xl md:text-2xl text-navy/80 leading-relaxed font-medium tracking-tight mb-8">
-                        @if(isset($about?->bio) && $about?->bio)
-                            {!! nl2br(strip_tags($about?->bio)) !!}
+                        @if(isset($identity?->bio) && $identity?->bio)
+                            {!! nl2br(strip_tags($identity?->bio)) !!}
                         @else
                             A dedicated Backend Engineer building clean, efficient architectures for the modern web.
                         @endif
