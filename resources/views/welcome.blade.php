@@ -864,7 +864,7 @@
                                 <div class="relative aspect-video">
                                     @if(isset($project->thumbnail) && $project->thumbnail)
                                         <img src="{{ Storage::url($project->thumbnail) }}" alt="{{ $project->title }}"
-                                             class="w-full h-full object-contain bg-[#0f172a] p-2 md:p-6 transition-transform duration-700 group-hover/proj:scale-105">
+                                             class="absolute inset-0 w-full h-full object-contain bg-[#0f172a] p-2 md:p-6 transition-transform duration-700 group-hover/proj:scale-105">
                                     @else
                                         <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#0f172a] to-[#1e293b]">
                                             <span class="font-heading font-black text-[#1e3a8a]/60 text-[6rem] leading-none">{{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
